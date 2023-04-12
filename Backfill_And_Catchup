@@ -1,0 +1,3 @@
+Rerunning failed task from CLI
+Syntax:
+  airflow backfill -s 2023-01-01 -e 2023-01-25 --rerun_failed_tasks -B backfill
