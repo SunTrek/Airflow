@@ -1,0 +1,11 @@
+=== Isssue faced while accessing Composer from gcloud cli ==
+1. Unable to list dags using "composer enviromemt run" command
+  Solution:
+      GKE cluster:
+      Using a private GKE cluster enables you to control access to the cluster's control plane (cluster nodes do not have public IP addresses).
+
+      When you create a private IP Cloud Composer environment, you specify whether or not access to the control plane is public and its IP range. The control plane IP range must not overlap with any subnetwork in your VPC network.
+
+      Option	Description:
+      Public endpoint access disabled	To connect to the cluster, you must connect from a VM in the same region and same VPC network of the Private IP environment. The VM instance you are connecting from requires the Access scope Allow full access to all Cloud APIs.
+      From that VM, you can run Airflow commands by using the gcloud composer environments run command.
