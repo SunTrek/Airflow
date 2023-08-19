@@ -8,7 +8,8 @@ If the issue persists, it might be caused by problems with permissions or networ
 
 An internal error occurred while processing task /app-engine-flex/flex_await_healthy/flex_await_healthy>2023-08-19T15:21:27.994Z438.si.2: Your deployment has failed to become healthy in the allotted time and therefore was rolled back. If you believe this was an error, try adjusting the 'app_start_timeout_sec' setting in the 'readiness_check' section.
 
-Solution: Add required roles to service account- CE admin, K8S admin, App engine Admin roles etc
+Solution: Add required roles to service account- CE admin, K8S admin, App engine Admin , Storage Admin Role, Cloud Build Editor role 
+		Ref: https://cloud.google.com/appengine/docs/flexible/troubleshooting
 
 
 2. Errors in: [GKE cluster]; Error messages:
