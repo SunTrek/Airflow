@@ -1,0 +1,26 @@
+
+Composer Error:
+
+1. CREATE operation on this environment failed 5 minutes ago with the following error message:
+Errors in: [Web server]; Error messages:
+	Failed to deploy the Airflow web server. This might be a temporary issue. You can retry the operation later.
+If the issue persists, it might be caused by problems with permissions or network configuration. For more information, see https://cloud.google.com/composer/docs/troubleshooting-environment-creation.
+
+An internal error occurred while processing task /app-engine-flex/flex_await_healthy/flex_await_healthy>2023-08-19T15:21:27.994Z438.si.2: Your deployment has failed to become healthy in the allotted time and therefore was rolled back. If you believe this was an error, try adjusting the 'app_start_timeout_sec' setting in the 'readiness_check' section.
+
+Solution: Add required roles to service account- CE admin, K8S admin, App engine Admin roles etc
+
+
+2. Errors in: [GKE cluster]; Error messages:
+	Insufficient regional quota to satisfy request: resource "DISKS_TOTAL_GB": request requires '90.0' and is short '44.0'. project has a quota of '2048.0' with '46.0' available. View and manage quotas at https://console.cloud.google.com/iam-admin/quotas?usage=USED&project=devops-practise-387920.
+	
+	Solution: https://stackoverflow.com/questions/74836213/error-403-insufficient-regional-quota-to-satisfy-request-resource-ssd-total
+	  I. Changing the disk type from SSD(default) to Standard Persistent Disk makes it work:
+
+      --disk-type pd-standard
+
+  II. You can view the quotas for a region by replacing $PROJECT-ID$ with your project-id https://console.cloud.google.com/iam- admin/quotas?usage=USED&project=$PROJECT-ID$  and heading to that link.
+
+    If you filter the list to persistent disk ssd (GB) you should see a list of all the available regions along with their quotas.
+
+Filter to persistent disk ssd (gb)
