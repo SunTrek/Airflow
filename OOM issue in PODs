@@ -4,3 +4,11 @@ https://cloud.google.com/composer/docs/composer-2/troubleshooting-dags
 
 Logging :
 https://cloud.google.com/composer/docs/composer-2/view-logs
+
+
+==
+Setting below parameter under ENVIRONMENT VARIABLE in Composer prevent the DAG logs in "gs://composer-env--bucket/logs" folder and eventually prevent OOM issue for GCSFUSE PODs
+    EXPERIMENTAL_CLOUD_LOGGING_ONLY=True
+AND  EXPERIMENTAL_CLOUD_LOGGING_ONLY=true doesnt work.
+
+  Reference: https://cloud.google.com/composer/docs/composer-2/cloud-storage
