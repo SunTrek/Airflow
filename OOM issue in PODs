@@ -12,3 +12,14 @@ Setting below parameter under ENVIRONMENT VARIABLE in Composer prevent the DAG l
 AND  EXPERIMENTAL_CLOUD_LOGGING_ONLY=true doesnt work.
 
   Reference: https://cloud.google.com/composer/docs/composer-2/cloud-storage
+
+
+**** DAG log before  enabling the "EXPERIMENTAL_CLOUD_LOGGING_ONLY" Parameter.
+    *** Reading remote log from gs://asia-east2-dag-demo-3d0b6e23-bucket/logs/dag_id=airflow_monitoring/run_id=manual__2023-09-02T16:58:10.580512+00:00/task_id=echo/attempt=1.log.
+
+*****  DAG log After  enabling the "EXPERIMENTAL_CLOUD_LOGGING_ONLY" Parameter.
+    *** Reading remote logs from Cloud Logging.
+    [2023-09-02 17:33:05.842914+00:00] {taskinstance.py:1091} INFO - Dependencies all met for dep_context=non-requeueable deps ti=
+
+
+
